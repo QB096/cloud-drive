@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>我的云盘</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div id="login-overlay" class="overlay hidden">
+    <div class="login-card">
+      <div class="login-logo">☁</div>
+      <h2 id="login-title">我的云盘</h2>
+      <p class="login-sub">请输入访问口令</p>
+      <input id="login-pass" type="password" placeholder="访问口令" autocomplete="current-password">
+      <button id="login-btn" class="primary">登录</button>
+      <div id="login-error" class="login-error"></div>
+    </div>
+  </div>
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo">☁</span>
+      <span id="app-name">我的云盘</span>
+      <span id="bucket-tag" class="bucket-tag"></span>
+    </div>
+
+    <div class="toolbar">
+      <button id="btn-upload" class="primary">上传</button>
+      <button id="btn-folder" class="ghost">新建文件夹</button>
+      <button id="btn-trash" class="ghost">回收站</button>
+      <input type="file" id="file-input" multiple hidden>
+      <input type="file" id="folder-input" webkitdirectory multiple hidden>
+    </div>
+
+    <div class="toolbar-right">
+      <div class="search">
+        <input id="search-input" placeholder="搜索整盘…" autocomplete="off">
+        <button id="search-clear" class="hidden" title="退出搜索">✕</button>
+      </div>
+      <span id="usage" class="usage"></span>
+      <button id="btn-refresh" class="ghost" title="刷新">⟳</button>
+      <button id="btn-logout" class="ghost hidden">退出</button>
+    </div>
+  </header>
+
+  <nav id="breadcrumb" class="breadcrumb"></nav>
+
+  <main>
+    <div id="list-head" class="list-head">
+      <div class="col-name">名称</div>
+      <div class="col-size">大小</div>
+      <div class="col-date">修改时间</div>
+      <div class="col-actions">操作</div>
+    </div>
+    <div id="file-list" class="file-list"></div>
+    <div id="empty" class="empty hidden">此目录为空</div>
+    <div id="trash-bar" class="trash-bar hidden">
+      <button id="btn-empty-trash" class="danger">清空回收站</button>
+      <span id="trash-note">回收站中的文件可恢复，删除后不可找回</span>
+    </div>
+  </main>
+
+  <div id="drop-overlay" class="drop-overlay hidden">松开鼠标以上传文件</div>
+
+  <div id="ctx-menu" class="ctx-menu hidden"></div>
+  <div id="modal-root"></div>
+  <div id="toast-root"></div>
+  <div id="progress-bar" class="progress hidden"><div id="progress-fill"></div><span id="progress-label"></span></div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
